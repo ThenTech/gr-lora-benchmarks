@@ -77,3 +77,8 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+Makefile
+*.Debug
+*.Release
+*.user
+*.stash
