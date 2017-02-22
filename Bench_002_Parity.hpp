@@ -17,9 +17,9 @@ namespace gr {
         ///		check_parity
         //////////////////////////////////////////////////////////////////////////////////////////
 
-		/**
-		 *	5
-		 */
+        /**
+         *	Windows TDM-GCC: 5      vs  Arch GCC: 4
+         */
         bool check_parity_old(std::string word, bool even = true) {
             int count = 0;
 
@@ -32,9 +32,9 @@ namespace gr {
             else	  return (((count + 1) % 2) == 0);
         }
 
-		/**
-		 *	3
-		 */
+        /**
+         *	Windows TDM-GCC: 3      vs  Arch GCC: 3
+         */
         bool check_parity0(std::string& word, bool even = true) {
             size_t count = 0, i = 0;
 
@@ -46,9 +46,9 @@ namespace gr {
             return (count & 0x1) == (even ? 0 : 1);
         }
 
-		/**
-		 *	4
-		 */
+        /**
+         *	Windows TDM-GCC: 4      vs  Arch GCC: 5
+         */
         bool check_parity1(unsigned long long word, bool even = true) {
             // Copy and shifting is still slow
             size_t count = 0;
@@ -61,9 +61,9 @@ namespace gr {
             return (count & 0x1) == (even ? 0 : 1);
         }
 
-		/**
-		 *	1 FASTEST
-		 */
+        /**
+         *	Windows TDM-GCC: 1 FASTEST      vs  Arch GCC: 1
+         */
         bool check_parity2(unsigned long long word, bool even = true) {
             word ^= word >> 1;
             word ^= word >> 2;
@@ -72,9 +72,9 @@ namespace gr {
             return ((word >> 60) & 1) == (even ? 0 : 1);
         }
 
-		/**
-		 *	2
-		 */
+        /**
+         *	Windows TDM-GCC: 2      vs  Arch GCC: 2
+         */
         template <size_t bitwidth>
         bool check_parity3(unsigned long long word, bool even = true) {
             return (std::bitset<bitwidth>(word).count() & 0x1) == (even ? 0 : 1);

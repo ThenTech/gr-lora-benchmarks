@@ -20,9 +20,9 @@ namespace gr {
         ///		to_bin
         //////////////////////////////////////////////////////////////////////////////////////////
 
-		/**
-		 *	3
-		 */
+        /**
+         *	Windows TDM-GCC: 3      vs  Arch GCC: 3
+         */
         template <typename T>
         std::string to_bin_old(T v, int element_len_bits) {
             T mask = 0;
@@ -42,9 +42,9 @@ namespace gr {
             return result;
         }
 
-		/**
-		 *	2
-		 */
+        /**
+         *	Windows TDM-GCC: 2      vs  Arch GCC: 1
+         */
         template <typename T>
         std::string to_bin0(T v, size_t bitwidth) {
             unsigned long long maxpow = bitwidth ? (1ull << (bitwidth - 1)) : 0,
@@ -59,9 +59,9 @@ namespace gr {
             return result;
         }
 
-		/**
-		 *	2.5
-		 */
+        /**
+         *	Windows TDM-GCC: 2.5     vs  Arch GCC: 1.5
+         */
         template <typename T>
         std::string to_bin1(T v, size_t bitwidth) {
             unsigned long long mask = bitwidth ? (1ull << (bitwidth - 1)) : 0;
@@ -75,9 +75,9 @@ namespace gr {
             return result;
         }
 
-		/**
-		 *	1
-		 */
+        /**
+         *	Windows TDM-GCC: 1      vs  Arch GCC: 1.7
+         */
         template <size_t bitwidth, class T>
         std::string to_bin2(T v) {
             return std::bitset<bitwidth>((unsigned long long) v).to_string();

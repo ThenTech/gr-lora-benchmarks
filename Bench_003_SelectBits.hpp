@@ -16,9 +16,9 @@ namespace gr {
         ///		selectBits
         //////////////////////////////////////////////////////////////////////////////////////////
 
-		/**
-		 *	4
-		 */
+        /**
+         *	Windows TDM-GCC: 4      vs  Arch GCC: 4
+         */
         uint32_t select_bits_old(uint32_t data, uint8_t* indices, uint8_t n) {
             uint32_t result = 0;
 
@@ -32,22 +32,22 @@ namespace gr {
             return result;
         }
 
-		/**
-		 *	3 FASTER and correct?
-		 */
+        /**
+         *	Windows TDM-GCC: 3 FASTER and correct?    vs  Arch GCC: 3
+         */
         uint32_t select_bits_0(uint32_t data, uint8_t* indices, uint8_t n) {
             uint32_t r = 0;
 
             for(size_t i = 0; i < n; ++i)
                 //r |= data & (1 << indices[i]);
-				r |= (data & (1 << indices[i])) ? (1 << i) : 0;
+                r |= (data & (1 << indices[i])) ? (1 << i) : 0;
 
             return r;
         }
 
-		/**
-		 *	FASTEST
-		 */
+        /**
+         *	Windows TDM-GCC: 1 FASTEST   vs  Arch GCC: 1
+         */
         typedef enum SELECT_BITS {
             BIT0  = 0x0001, BIT1  = 0x0002, BIT2  = 0x0004, BIT3  = 0x0008,
             BIT4  = 0x0010, BIT5  = 0x0020, BIT6  = 0x0040, BIT7  = 0x0080,
@@ -57,16 +57,16 @@ namespace gr {
         //            BIT24 ,    BIT25, BIT26, BIT27, BIT28, BIT29, BIT30, BIT31
         } SELECT_BITS;
 
-		/**
-		 *	2
-		 */
+        /**
+         *	Windows TDM-GCC: 2    vs  Arch GCC: 2
+         */
         inline uint32_t select_bits_1(uint32_t data, uint32_t mask) {
             return data & mask;
         }
 
-		/**
-		 *	1
-		 */
+        /**
+         *	Windows TDM-GCC: 1    vs  Arch GCC: 1
+         */
         #define select_bits_2(data, mask)   ((data) & (mask))
 
     }
@@ -106,28 +106,28 @@ class SelectBitsFixture : public ::hayai::Fixture {
 };
 
 BENCHMARK_F(SelectBitsFixture, Method_old, 30, 1) {
-	uint32_t temp = 0;
+    uint32_t temp = 0;
 
     for(auto& bits : test_values)
         temp = gr::lora::select_bits_old(0xFFFF, bits, 8) | temp;
 }
 
 BENCHMARK_F(SelectBitsFixture, Method_000, 30, 1) {
-	uint32_t temp = 0;
+    uint32_t temp = 0;
 
     for(auto& bits : test_values)
-		temp = gr::lora::select_bits_0(0xFFFF, bits, 8) | temp;
+        temp = gr::lora::select_bits_0(0xFFFF, bits, 8) | temp;
 }
 
 BENCHMARK_F(SelectBitsFixture, Method_001, 30, 1) {
-	uint32_t temp = 0;
+    uint32_t temp = 0;
 
     for(auto& bits : test_masks)
         temp = gr::lora::select_bits_1(0xFFFF, bits) | temp;
 }
 
 BENCHMARK_F(SelectBitsFixture, Method_002, 30, 1) {
-	uint32_t temp = 0;
+    uint32_t temp = 0;
 
     for(auto& bits : test_masks)
         temp = select_bits_2(0xFFFF, bits) | temp;

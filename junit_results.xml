@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testgroups>
+    <testsuites name="Windows TDM-GCC">
+    	<testsuite name="ParityFixture" tests="5">
+    		<testcase name="ParityFixture.Method_old" time="0.011975092" />
+    		<testcase name="ParityFixture.Method_000" time="0.005416040" />
+    		<testcase name="ParityFixture.Method_001" time="0.007241798" />
+    		<testcase name="ParityFixture.Method_002" time="0.000829868" />
+    		<testcase name="ParityFixture.Method_003" time="0.001100964" />
+    	</testsuite>
+    	<testsuite name="SelectBitsFixture" tests="4">
+    		<testcase name="SelectBitsFixture.Method_old" time="0.064890323" />
+    		<testcase name="SelectBitsFixture.Method_000" time="0.002934677" />
+    		<testcase name="SelectBitsFixture.Method_001" time="0.000591144" />
+    		<testcase name="SelectBitsFixture.Method_002" time="0.000454007" />
+    	</testsuite>
+    	<testsuite name="ToBinaryFixture" tests="4">
+    		<testcase name="ToBinaryFixture.Method_old" time="0.221336970" />
+    		<testcase name="ToBinaryFixture.Method_000" time="0.058094315" />
+    		<testcase name="ToBinaryFixture.Method_001" time="0.059668653" />
+    		<testcase name="ToBinaryFixture.Method_002" time="0.021458267" />
+    	</testsuite>
+    </testsuites>
+    <testsuites name="Arch Linux GCC">
+        <testsuite name="ParityFixture" tests="5">
+            <testcase name="ParityFixture.Method_old" time="0.009348380" />
+            <testcase name="ParityFixture.Method_000" time="0.005672420" />
+            <testcase name="ParityFixture.Method_001" time="0.011487140" />
+            <testcase name="ParityFixture.Method_002" time="0.001251060" />
+            <testcase name="ParityFixture.Method_003" time="0.002098620" />
+        </testsuite>
+        <testsuite name="SelectBitsFixture" tests="4">
+            <testcase name="SelectBitsFixture.Method_old" time="0.065171967" />
+            <testcase name="SelectBitsFixture.Method_000" time="0.002744167" />
+            <testcase name="SelectBitsFixture.Method_001" time="0.000947100" />
+            <testcase name="SelectBitsFixture.Method_002" time="0.000837067" />
+        </testsuite>
+        <testsuite name="ToBinaryFixture" tests="4">
+            <testcase name="ToBinaryFixture.Method_old" time="0.214514000" />
+            <testcase name="ToBinaryFixture.Method_000" time="0.048542350" />
+            <testcase name="ToBinaryFixture.Method_001" time="0.048873350" />
+            <testcase name="ToBinaryFixture.Method_002" time="0.050292150" />
+        </testsuite>
+    </testsuites>
+</testgroups>
