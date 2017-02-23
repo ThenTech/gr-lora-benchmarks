@@ -4,19 +4,27 @@
 
 //#include "Bench_001_ToBinary.hpp"
 //#include "Bench_002_Parity.hpp"
-#include "Bench_003_SelectBits.hpp"
+//#include "Bench_003_SelectBits.hpp"
+//#include "Bench_004_ReverseVector.hpp"
+#include "Bench_005_Accumulate.hpp"
+
 
 //#define W_ARGS
+//#define JUXML
 
 int main(int argc, char *argv[]) {
     #ifndef W_ARGS
+        (void) argc; (void) argv;
+
         std::cout << "Start benchmark..." << std::endl;
 
-//        hayai::ConsoleOutputter consoleOutputter;
-//        hayai::Benchmarker::AddOutputter(consoleOutputter);
-
-        hayai::JUnitXmlOutputter ju(std::cout);
-        hayai::Benchmarker::AddOutputter(ju);
+        #ifdef JUXML
+            hayai::JUnitXmlOutputter ju(std::cout);
+            hayai::Benchmarker::AddOutputter(ju);
+        #else
+            hayai::ConsoleOutputter consoleOutputter;
+            hayai::Benchmarker::AddOutputter(consoleOutputter);
+        #endif
 
         hayai::Benchmarker::RunAllTests();
 

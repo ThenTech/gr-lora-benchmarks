@@ -22,6 +22,9 @@ HEADERS += \
     hayai/hayai_test_descriptor.hpp \
     hayai/hayai_test_factory.hpp \
     hayai/hayai_test_result.hpp \
+    Bench_000_template.hpp \
     Bench_001_ToBinary.hpp \
     Bench_002_Parity.hpp \
-    Bench_003_SelectBits.hpp
+    Bench_003_SelectBits.hpp \
+    Bench_004_ReverseVector.hpp \
+    Bench_005_Accumulate.hpp
