@@ -27,4 +27,7 @@ HEADERS += \
     Bench_002_Parity.hpp \
     Bench_003_SelectBits.hpp \
     Bench_004_ReverseVector.hpp \
-    Bench_005_Accumulate.hpp
+    Bench_005_Accumulate.hpp \
+    Bench_006_Volk.hpp
+
+unix|win32: LIBS += -lvolk

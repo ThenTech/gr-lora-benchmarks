@@ -7,7 +7,7 @@
 //#include "Bench_003_SelectBits.hpp"
 //#include "Bench_004_ReverseVector.hpp"
 #include "Bench_005_Accumulate.hpp"
-
+//#include "Bench_006_Volk.hpp"
 
 //#define W_ARGS
 //#define JUXML

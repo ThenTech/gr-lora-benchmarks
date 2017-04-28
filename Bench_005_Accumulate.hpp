@@ -6,6 +6,8 @@
 #include <cassert>
 #include <cmath>
 
+#include <volk/volk.h>
+
 #include "hayai/hayai.hpp"
 
 #pragma GCC push_options
@@ -113,6 +115,20 @@ BENCHMARK_F(AccumulateFixture, Method_AccuF, 10, 100) {
     float sum = std::accumulate(test_values, test_values + ELEMENTS, 0.0f) / ELEMENTS;
 
     assert(epsilon_equals(sum, sumF));
+}
+
+
+/**
+ *	Windows TDM-GCC: ?      vs  Arch GCC: 1
+ */
+BENCHMARK_F(AccumulateFixture, Method_AccuVolk, 10, 100) {
+    float sum[1] = { 0.0f };
+
+    volk_32f_accumulator_s32f(sum, test_values, ELEMENTS);
+
+    sum[0] /= ELEMENTS;
+
+    assert(epsilon_equals(sum[0], sumF));
 }
 
 #pragma GCC pop_options
